@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block file_css %}
+<!-- <link rel="stylesheet" href="/static/css/index.css"> -->
+{% endblock %}
+
+{% block content %}
+
+<h1>details post</h1>
+
+<div class="card" style="width: 18rem;">
+
+  <div class="card-body">
+
+    <h5 class="card-title">title : {{ post.title }}</h5>
+
+    <p class="card-text">content : {{ post.content }}</p>
+
+    <h6 class="card-title">author : {{ post.author }}</h6>
+ <h5 class="card-title">Comments</h5>
+
+{% for comment in post.comments %}
+
+  <div class="border p-2 mb-2">
+    <strong>{{ comment.author }}</strong>
+    <p>{{ comment.content }}</p>
+  </div>
+
+{% else %}
+
+  <p>no comments yet</p>
+
+{% endfor %}
+    <!-- <a href="{{ url_for('update_post', id=post.id) }}" class="btn btn-primary">
+        update
+    </a>
+
+    <form action="{{ url_for('delete_post', id=post.id) }}" method="POST" style="display:inline;">
+        <button class="btn btn-danger">
+            delete
+        </button>
+    </form> -->
+
+  </div>
+
+</div>
+
+{% endblock %}
