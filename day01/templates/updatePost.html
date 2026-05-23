@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <form method="POST" action="/update-post/{{ post.id }}">
+
+        <div class="mb-3">
+            <label>title</label>
+            <input type="text" name="title" value="{{ post.title }}" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label>content</label>
+            <textarea name="content" class="form-control">{{ post.content }}</textarea>
+        </div>
+
+        <div class="mb-3">
+            <label>author</label>
+            <input type="text" name="author" value="{{ post.author }}" class="form-control">
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+            Submit
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}
